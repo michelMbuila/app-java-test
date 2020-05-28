@@ -73,4 +73,21 @@ public class AppTest {
       return "\nID : " + id + "\nUsername : " + username + "\nPassword : " + password + "\nActive : " + (isActive ? "Oui" : "Non");
     }
   }
+
+  static class Role {
+    private Long id;
+    private String roleName;
+
+    public Role() {}
+
+    public Role(Long id, String roleName) {
+      this.id = id;
+      this.roleName = roleName;
+    }
+    
+    @Override
+    public String toString() {
+      return "\nID : " + id + "\nRole : " + roleName;
+    }
+  }
 }
