@@ -27,6 +27,15 @@ public class AppTest {
     private String password;
     private boolean isActive;
 
+    public User() {}
+
+    public User(Long id, String username, String password, boolean isActive) {
+      this.id = id;
+      this.username = username;
+      this.password = password;
+      this.isActive = isActive;
+    }
+
     public Long getId() {
       return id;
     }
