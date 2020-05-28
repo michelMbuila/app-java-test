@@ -1,6 +1,8 @@
 
 public class AppTest {
 
+  private static long id = 0L;
+
   public static void main(String[] args) {
     create(args);
   }
@@ -9,7 +11,7 @@ public class AppTest {
     int length = args.length;
     if(length >= 2 ) {
       User user = new User();
-      user.setId(1L);
+      user.setId(id++);
       user.setUsername(args[0]);
       user.setPassword(args[1]);
       user.setActive(args[2] != null ? (Integer.parseInt(args[2]) == 1 ? true : false) : false);
