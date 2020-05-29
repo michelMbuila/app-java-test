@@ -15,8 +15,7 @@ public class AppTest {
       user.setUsername(args[1]);
       user.setPassword(args[2]);
       user.setActive(args[3] != null ? (Integer.parseInt(args[3]) == 1 ? true : false) : false);
-      List<Role> roles = Arrays.asList( new Role(1L, "ADMIN"), new Role(2L, "USER"), new Role(3L, "READ-ONLY"));
-      user.setRoles(roles);
+      user.setRoles(Arrays.asList( new Role(1L, "ADMIN"), new Role(2L, "USER"), new Role(3L, "READ-ONLY")));
       System.out.println(user);
     } else {
       System.out.println("Parametres insuffissants : " + length);
