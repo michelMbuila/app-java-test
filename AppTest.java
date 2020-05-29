@@ -1,4 +1,6 @@
 
+import java.util.*;
+
 public class AppTest {
 
   private static long id = 0L;
@@ -11,10 +13,12 @@ public class AppTest {
     int length = args.length;
     if(length >= 2 ) {
       User user = new User();
-      user.setId(id++);
+      user.setId(++id);
       user.setUsername(args[0]);
       user.setPassword(args[1]);
       user.setActive(args[2] != null ? (Integer.parseInt(args[2]) == 1 ? true : false) : false);
+      List<Role> roles = Arrays.asList( new Role(1L, "ADMIN"), new Role(2L, "USER"), new Role(3L, "READ-ONLY"));
+      user.setRoles(roles);
       System.out.println(user);
     } else {
       System.out.println("Parametres insuffissants : " + length);
@@ -26,6 +30,7 @@ public class AppTest {
     private String username;
     private String password;
     private boolean isActive;
+    private List<Role> roles = new ArrayList<>();
 
     public User() {}
 
@@ -68,9 +73,17 @@ public class AppTest {
       this.isActive = isActive;
     }
 
+    public List<Role> getRoles() {
+      return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+      this.roles = roles;
+    }
+
     @Override
     public String toString() {
-      return "\nID : " + id + "\nUsername : " + username + "\nPassword : " + password + "\nActive : " + (isActive ? "Oui" : "Non");
+      return "\nID : " + id + "\nUsername : " + username + "\nPassword : " + password + "\nActive : " + (isActive ? "Oui" : "Non") + "\nRoles : " + roles;
     }
   }
 
@@ -84,10 +97,10 @@ public class AppTest {
       this.id = id;
       this.roleName = roleName;
     }
-    
+
     @Override
     public String toString() {
-      return "\nID : " + id + "\nRole : " + roleName;
+      return "ID : " + id + " - Role : " + roleName;
     }
   }
 }
