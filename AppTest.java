@@ -11,7 +11,7 @@ public class AppTest {
     int length = args.length;
     if(length >= 3) {
       User user = new User();
-      user.setId(Long.parseInt(args[0]));
+      user.setId(Long.parseLong(args[0]));
       user.setUsername(args[1]);
       user.setPassword(args[2]);
       user.setActive(args[3] != null ? (Integer.parseInt(args[3]) == 1 ? true : false) : false);
