@@ -3,24 +3,21 @@ import java.util.*;
 
 public class AppTest {
 
-  private static long id = 1L;
-
   public static void main(String[] args) {
     create(args);
   }
 
   private static void create(String [] args) {
     int length = args.length;
-    if(length >= 2) {
+    if(length >= 3) {
       User user = new User();
-      user.setId(id);
-      user.setUsername(args[0]);
-      user.setPassword(args[1]);
-      user.setActive(args[2] != null ? (Integer.parseInt(args[2]) == 1 ? true : false) : false);
+      user.setId(Long.parseInt(args[0]));
+      user.setUsername(args[1]);
+      user.setPassword(args[2]);
+      user.setActive(args[3] != null ? (Integer.parseInt(args[3]) == 1 ? true : false) : false);
       List<Role> roles = Arrays.asList( new Role(1L, "ADMIN"), new Role(2L, "USER"), new Role(3L, "READ-ONLY"));
       user.setRoles(roles);
       System.out.println(user);
-      id++;
     } else {
       System.out.println("Parametres insuffissants : " + length);
     }
