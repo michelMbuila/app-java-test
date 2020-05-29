@@ -11,7 +11,7 @@ public class AppTest {
 
   private static void create(String [] args) {
     int length = args.length;
-    if(length >= 2 ) {
+    if(length >= 2) {
       User user = new User();
       user.setId(++id);
       user.setUsername(args[0]);
@@ -25,6 +25,7 @@ public class AppTest {
     }
   }
 
+  /**  User class **/
   static class User {
     private Long id;
     private String username;
@@ -87,6 +88,7 @@ public class AppTest {
     }
   }
 
+  /** User's rules **/
   static class Role {
     private Long id;
     private String roleName;
